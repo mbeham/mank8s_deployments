@@ -1,0 +1,39 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: flux-app-mbeham
+  namespace: default        
+  annotations:
+    fluxcd.io/automated: "true"           
+    filter.fluxcd.io/chart-image: glob:*  
+spec:
+  releaseName: flux-app-mbeham
+  chart:
+	git: https://github.com/mbeham/mank8s_helm.git
+    path: generic
+    ref: master
+  values: 
+    image:
+      repository: mbeham/hello_world
+      tag: 'env' 
+      pullPolicy: Always
+      expose: 8080
+	  readinessProbe:
+        path: /health
+        port: 8080
+    replicaCount: 2
+    ingress:
+      enabled: true
+      annotations: {}
+      	cert-manager.io/cluster-issuer: letsencrypt
+      path: /
+      hosts:
+      - flux-mbeham.mank8s.jambit.space
+      tls:
+        - hosts:
+          - flux-mbeham.mank8s.jambit.space
+          secretName: flux-mbeham-cert
+    nodeSelector: {}
+    tolerations: []
+    affinity: {}

@@ -5,7 +5,7 @@ metadata:
   name: flux-app-mbeham
   namespace: default        
   annotations:
-    fluxcd.io/automated: "true"           
+    fluxcd.io/automated: "false"           
     filter.fluxcd.io/chart-image: glob:*  
 spec:
   releaseName: flux-app-mbeham

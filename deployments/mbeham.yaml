@@ -10,7 +10,7 @@ metadata:
 spec:
   releaseName: flux-app-mbeham
   chart:
-	git: git@github.com:mbeham/mank8s_helm.git
+    git: git@github.com:mbeham/mank8s_helm.git
     path: generic
     ref: master
   values: 
@@ -19,14 +19,14 @@ spec:
       tag: 'env' 
       pullPolicy: Always
       expose: 8080
-	  readinessProbe:
+    readinessProbe:
         path: /health
         port: 8080
     replicaCount: 2
     ingress:
       enabled: true
-      annotations: {}
-      	cert-manager.io/cluster-issuer: letsencrypt
+      annotations: 
+        cert-manager.io/cluster-issuer: letsencrypt
       path: /
       hosts:
       - flux-mbeham.mank8s.jambit.space

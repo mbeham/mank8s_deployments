@@ -10,7 +10,7 @@ metadata:
 spec:
   releaseName: flux-app-mbeham
   chart:
-    git: ssh://git@github.com:mbeham/mank8s_helm.git
+    git: git@github.com:mbeham/mank8s_helm
     path: generic
     ref: master
   values: 

@@ -6,6 +6,6 @@ metadata:
   namespace: kube-system
 spec:
   chart:
-    repository: "https://kubernetes-sigs.github.io/"
+    repository: "https://kubernetes-sigs.github.io/descheduler/"
     name: descheduler
     version: 0.20.0

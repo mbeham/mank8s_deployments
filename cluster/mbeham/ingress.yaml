@@ -16,12 +16,13 @@ spec:
     name: ingress-nginx
     version: 3.30.0
   values:
-    tolerations: 
-      - key: "dedicated"
-        operator: "Equal"
-        value: "ingress"
-        effect: "NoSchedule"
-    labels:
-      type: "ingress"
-    replicaCount: 2
+    controller:
+      tolerations: 
+        - key: "dedicated"
+          operator: "Equal"
+          value: "ingress"
+          effect: "NoSchedule"
+      labels:
+        type: "ingress"
+      replicaCount: 2
 

@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vault
+
+
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: vault
+  namespace: vault
+spec:
+  chart:
+    repository: "https://helm.releases.hashicorp.com/"
+    name: vault
+    version: 0.11.0
+  values:
+    ui:
+      enabled: true
+    

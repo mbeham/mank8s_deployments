@@ -13,7 +13,7 @@ spec:
     path: generic
     ref: master
   values:
-    image: 
+    image:
       repository: 427770260507.dkr.ecr.eu-west-1.amazonaws.com/gitops
-      tag: "1.0.0"
+      tag: "1.0.2"
     replicaCount: 4

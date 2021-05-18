@@ -4,6 +4,9 @@ kind: HelmRelease
 metadata:
   name: app-mbeham
   namespace: default
+  annotations:
+    fluxcd.io/automated: "true"
+    filter.fluxcd.io/chart-image: glob:1.0.*
 spec:
   chart:
     git: git@github.com:mbeham/mank8s_helm
